@@ -2,13 +2,8 @@ console.log('Starting app.');
 
 //trying to access fs module
 const fs = require('fs');
+const os = require('os');
 
-//Option one
-fs.appendFile('greetings.txt', 'Hello World!',function(err){
-    if(err){
-        console.log('Unable to write to file');
-    }
-});
+var user = os.userInfo();
 
-//Option two
-fs.appendFileSync('greetings.txt', ' Hello World! ');
+fs.appendFileSync('greetings.txt', ` Hello ${user.username}!`);
