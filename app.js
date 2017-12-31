@@ -12,7 +12,7 @@ const notes = require('./notes.js');
 
 // console.log(_.isString(true));
 // console.log(_.isString('Andrew'));
-let filteredArray = _.uniq(['Andrew',1,2,3,4,1,2,'Andrew']);
+let filteredArray = rs_.uniq(['Andrew',1,2,3,4,1,2,'Andrew']);
 console.log(filteredArray);
 
 //var sum = notes.addNum(2,5);
