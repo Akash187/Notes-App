@@ -4,7 +4,6 @@
   "description": "This is a note keeping app part of my nodeJS Course.",
   "main": "app.js",
   "scripts": {
-    "devserver": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Akash Kumar Seth",
@@ -13,7 +12,5 @@
     "lodash": "^4.17.4",
     "yargs": "^10.0.3"
   },
-  "devDependencies": {
-    "nodemon": "^1.14.7"
-  }
+  "devDependencies": {}
 }
