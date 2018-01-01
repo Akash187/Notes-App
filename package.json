@@ -10,9 +10,10 @@
   "author": "Akash Kumar Seth",
   "license": "ISC",
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "yargs": "^10.0.3"
   },
   "devDependencies": {
-    "nodemon": "^1.14.6"
+    "nodemon": "^1.14.7"
   }
 }
