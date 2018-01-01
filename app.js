@@ -10,12 +10,12 @@ const notes = require('./notes.js');
 let argv = yargs.argv;
 let command = argv._[0];
 console.log('Command:', command);
-console.log('Process', process.argv);
+//console.log('Process', process.argv);
 console.log('Yargs', argv);
-//console.log(process.argv);
 
 if(command === 'add'){
-    notes.addNote(argv.title, argv.body);
+    let note = notes.addNote(argv.title, argv.body);
+    console.log(note);
 }else if (command === 'list'){
     notes.getAll();
 }else if (command === 'read'){
