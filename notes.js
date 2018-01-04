@@ -16,6 +16,12 @@ let saveNote = (notes) => {
     fs.writeFileSync('notes-data.json', JSON.stringify(notes));
 };
 
+let logNote = (note) =>{
+    console.log('--');
+    console.log(`Title: ${note.title}`);
+    console.log(`Body: ${note.body}`);
+};
+
 let addNote = (title, body) => {
     let notes = fetchNote();
     let note = {
@@ -27,10 +33,9 @@ let addNote = (title, body) => {
     if(duplicateNotes.length === 0) {
         notes.push(note);
         saveNote(notes);
-        return `Note Successfully Added Title : ${title} Body : ${body}`;
-    }else{
-        return "Note Already Exist";
+        return note;
     }
+
 };
 
 let getAll = () => {
@@ -38,7 +43,9 @@ let getAll = () => {
 };
 
 let getNote = (title) => {
-    console.log("Getting note",title);
+    let notes = fetchNote();
+    let fetchNotes = notes.filter((note) => note.title === title);
+    return fetchNotes[0];
 };
 
 let deleteNote = (title) => {
@@ -53,5 +60,6 @@ module.exports = {
   addNote,
     getAll,
     getNote,
-    deleteNote
+    deleteNote,
+    logNote
 };

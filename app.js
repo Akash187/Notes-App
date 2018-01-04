@@ -13,13 +13,24 @@ console.log('Command:', command);
 //console.log('Process', process.argv);
 console.log('Yargs', argv);
 
-if(command === 'add'){
+if(command === 'add') {
     let note = notes.addNote(argv.title, argv.body);
-    console.log(note);
+    if (note) {
+        console.log('Note Added');
+        notes.logNote(note);
+    }else {
+      console.log('Note title taken');
+    }
 }else if (command === 'list'){
     notes.getAll();
 }else if (command === 'read'){
-    notes.getNote(argv.title);
+    let readNote = notes.getNote(argv.title);
+    if(readNote) {
+        console.log('Note found');
+        notes.logNote(readNote);
+    }else {
+        console.log('Note not found');
+    }
 }else if (command === 'delete'){
     let noteRemoved = notes.deleteNote(argv.title);
     let message = noteRemoved ? 'Note was removed': 'Note not found';
