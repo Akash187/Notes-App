@@ -42,7 +42,11 @@ let getNote = (title) => {
 };
 
 let deleteNote = (title) => {
-    console.log("Removing note",title);
+    let notes = fetchNote();
+    let remainingNotes = notes.filter((note) =>
+    note.title !== title);
+    saveNote(remainingNotes);
+    return remainingNotes.length !== notes.length;
 };
 
 module.exports = {
