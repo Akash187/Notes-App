@@ -1,13 +1,33 @@
-console.log('Starting app.');
-
 const fs = require('fs');
 const _ = require('lodash');
 const yargs = require('yargs');
 
 const notes = require('./notes.js');
 
-/** @namespace yargs.argv */
-let argv = yargs.argv;
+const titleOptions = {
+    describe: 'Title of the note',
+        demand: true,
+        alias: 't'
+};
+const argv = yargs
+    .command('add', 'Add a new note', {
+        title:titleOptions,
+        body:{
+            describe: 'Description of the note',
+            demand: true,
+            alias: 'b'
+        }
+    })
+    .command('list','List all notes')
+    .command('read','Read a note',{
+        title: titleOptions
+    })
+    .command('delete', 'Delete a note',{
+        title: titleOptions
+    })
+    .help()
+    .argv;
+
 let command = argv._[0];
 console.log('Command:', command);
 //console.log('Process', process.argv);
